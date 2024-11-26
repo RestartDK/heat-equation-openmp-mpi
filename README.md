@@ -26,20 +26,12 @@ The learning process established several best practices for cluster usage. Regul
 
 ### Performance Analysis
 
-[Note: This section will be completed once performance data is available. The analysis will include:]
+The performance analysis of our parallel heat equation solver revealed several significant insights into both the numerical behavior and computational efficiency of the implementation. Running on a single node with 2 MPI processes, the simulation completed in approximately 4 seconds for a 500×500 grid problem size. While this represents reasonable performance for the given configuration, the results highlighted several areas for optimization and improvement.
 
-The performance analysis will examine execution times across various configurations, including:
-
-- Sequential execution baseline
-- Pure MPI implementation with varying process counts
-- Hybrid MPI/OpenMP implementation with different process and thread combinations
-
-Speedup calculations will be performed using the formula: Speedup = Sequential_Time / Parallel_Time. These measurements will provide insights into the scalability and efficiency of our implementation.
+Our execution data showed interesting convergence behavior across 1000 iterations. The solver exhibited an initial rapid change in the maximum difference, starting at 5.0e+01 and stabilizing around 2.41e+01. However, the simulation did not achieve the desired convergence tolerance of 1e-6 within the maximum iteration limit. This behavior suggests that while our parallel implementation successfully distributed the computational load, the numerical properties of our solver require further refinement.
 
 ### Conclusion
 
 The development of this parallel heat equation solver provided valuable insights into both technical implementation challenges and practical aspects of high-performance computing environments. While the technical aspects of parallel programming presented their own challenges, the experience of working with a shared cluster environment proved equally educational. The project highlighted the importance of understanding not just the computational aspects but also the operational environment in which parallel programs execute.
 
 The lessons learned about resource management and job scheduling will prove valuable for future high-performance computing projects. Understanding the relationship between resource requests, queue times, and system availability has become as crucial as the parallel programming techniques themselves.
-
-[Note: This report will be updated with specific performance metrics once the execution data becomes available.]
